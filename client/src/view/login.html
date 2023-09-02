@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header">Login</div>
+    <div class="card-body">
+      <div>
+        <label for="username">Username</label><br />
+        <input id="username" id="username" type="text" />
+      </div>
+      <div class="password-wrapper">
+        <label for="password">Password</label><br />
+        <input id="password" for="password" type="text" />
+      </div>
+      <button onclick="login()" type="button">Login</button>
+    </div>
+  </div>
+</div>
+
+<style>
+  .card {
+    background-color: white;
+    z-index: 1;
+    margin-top: 5em;
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: center;
+  }
+
+  .card-body {
+    padding: 3em;
+  }
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .password-wrapper {
+    margin-top: 1em;
+  }
+</style>

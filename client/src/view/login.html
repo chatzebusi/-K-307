@@ -1,42 +1,35 @@
-<div class="container">
+<div id="login" class="login-container">
   <div class="card">
     <div class="card-header">Login</div>
     <div class="card-body">
-      <div>
-        <label for="username">Username</label><br />
-        <input id="username" id="username" type="text" />
+      <div class="login-item-wrapper">
+        <div>
+          <label class="login-label" for="username">Username</label><br />
+          <input
+            class="input-username"
+            id="username"
+            id="username"
+            type="text"
+          />
+          <p class="error-message error-username">Please enter your username</p>
+        </div>
+        <div class="password-wrapper">
+          <label class="login-label" for="password">Password</label><br />
+          <input
+            class="input-password"
+            id="password"
+            for="password"
+            type="password"
+          />
+          <p class="error-message error-password">Please enter your password</p>
+        </div>
+        <p class="error-message error-wrong">Username or password is wrong</p>
+        <div class="btn-wrapper">
+          <button class="btn-login" onclick="login()" type="button">
+            Login
+          </button>
+        </div>
       </div>
-      <div class="password-wrapper">
-        <label for="password">Password</label><br />
-        <input id="password" for="password" type="text" />
-      </div>
-      <button onclick="login()" type="button">Login</button>
     </div>
   </div>
 </div>
-
-<style>
-  .card {
-    background-color: white;
-    z-index: 1;
-    margin-top: 5em;
-  }
-
-  .card-header {
-    display: flex;
-    justify-content: center;
-  }
-
-  .card-body {
-    padding: 3em;
-  }
-  .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .password-wrapper {
-    margin-top: 1em;
-  }
-</style>

@@ -8,8 +8,56 @@
       type="text/javascript"
       src="../controller/authenticationController.js"
     ></script>
+    <script
+      type="text/javascript"
+      src="../controller/validationController.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="../controller/navBarController.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="../controller/apiController.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="../controller/productController.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="../controller/styleController.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="../controller/productController.js"
+    ></script>
+    <link rel="stylesheet" href="../style/login.css" />
+    <link rel="stylesheet" href="../style/dashboard.css" />
+    <link rel="stylesheet" href="../style/editProduct.css" />
+    <link rel="stylesheet" href="../style/addProduct.css" />
   </head>
-  <body id="dashboard">
-    in dashboard view body
+  <body onload="onMounted()" id="dashboard">
+    <div class="dashboard-container">
+      <div class="dashboard-table-header">
+        <div class="table-title">Name</div>
+        <div class="table-title">Product sku</div>
+        <div class="table-title">Description</div>
+        <div class="table-title">Active</div>
+        <div class="table-title">Price</div>
+        <div class="table-title">Stock</div>
+        <div class="table-title">Category</div>
+        <div class="table-title">Actions</div>
+      </div>
+      <div id="dashboard-table"></div>
+    </div>
+    <div id="nav-bar" class="nav-bar-container">
+      <div class="nav-bar-item-wrapper">
+        <p class="btn-logout">Logout</p>
+        <p class="btn-productgroup">Product groups</p>
+        <p class="btn-add-product">Add product</p>
+      </div>
+    </div>
+    <div id="pop-up"></div>
   </body>
 </html>

@@ -1,0 +1,50 @@
+<div id="edit-product" class="edit-container">
+  <div class="card">
+    <div class="card-header">Edit Product</div>
+    <div class="card-body">
+      <div class="edit-product-item-wrapper">
+        <div>
+          <label class="name-label" for="name">Name</label><br />
+          <input class="input-name" id="edit-name" type="text" />
+          <p class="error-message error-name">Please enter a product name</p>
+        </div>
+        <div class="sku-wrapper">
+          <label class="sku-label" for="sku">Sku</label><br />
+          <input class="input-sku" id="edit-sku" type="text" />
+          <p class="error-message error-sku">Please enter a product sku</p>
+        </div>
+        <div class="description-wrapper">
+          <label class="description-label" for="description">Description</label
+          ><br />
+          <input class="input-description" id="edit-description" type="text" />
+        </div>
+        <div></div>
+        <div class="price-wrapper">
+          <label class="price-label" for="price">Price</label><br />
+          <input class="input-price" id="edit-price" type="number" />
+          <p class="error-message error-price">Please enter a product price</p>
+        </div>
+        <div class="stock-wrapper">
+          <label class="stock-label" for="stock">Stock</label><br />
+          <input class="input-stock" id="edit-stock" type="number" />
+          <p class="error-message error-stock">Please enter a stock</p>
+        </div>
+        <div>
+          <div class="categories-wrapper">
+            <label class="categories-label" for="categories">Categories</label
+            ><br />
+            <select class="input-categories" id="edit-categories"></select>
+          </div>
+          <div class="active-wrapper">
+            <label class="active-label" for="active">Active</label><br />
+            <input class="input-active" id="edit-active" type="checkbox" />
+          </div>
+        </div>
+        <div class="edit-product-btn-wrapper">
+          <button type="button" onclick="saveEditProductChanges()">ok</button>
+          <button type="button" onclick="closeEditProductPopup()">back</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<div id="add-product" class="add-container">
+  <div class="card">
+    <div class="card-header">Add Product</div>
+    <div class="card-body">
+      <div class="add-product-item-wrapper">
+        <div>
+          <label class="name-label" for="name">Name</label><br />
+          <input class="input-name" id="add-name" type="text" />
+          <p class="error-message error-name">Please enter a product name</p>
+        </div>
+        <div class="sku-wrapper">
+          <label class="sku-label" for="sku">Sku</label><br />
+          <input class="input-sku" id="add-sku" type="text" />
+          <p class="error-message error-sku">Please enter a product sku</p>
+        </div>
+        <div class="description-wrapper">
+          <label class="description-label" for="description">Description</label
+          ><br />
+          <input class="input-description" id="add-description" type="text" />
+        </div>
+        <div></div>
+        <div class="price-wrapper">
+          <label class="price-label" for="price">Price</label><br />
+          <input class="input-price" id="add-price" type="number" />
+          <p class="error-message error-price">Please enter a product price</p>
+        </div>
+        <div class="stock-wrapper">
+          <label class="stock-label" for="stock">Stock</label><br />
+          <input class="input-stock" id="add-stock" type="number" />
+          <p class="error-message error-stock">Please enter a stock</p>
+        </div>
+        <div>
+          <div class="categories-wrapper">
+            <label class="categories-label" for="categories">Categories</label
+            ><br />
+            <select class="input-categories" id="add-categories"></select>
+          </div>
+          <div class="active-wrapper">
+            <label class="active-label" for="active">Active</label><br />
+            <input class="input-active" id="add-active" type="checkbox" />
+          </div>
+        </div>
+        <div class="add-product-btn-wrapper">
+          <button type="button" onclick="saveAddProduct()">ok</button>
+          <button type="button" onclick="closeAddProductPopup()">back</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

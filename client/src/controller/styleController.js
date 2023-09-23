@@ -1,3 +1,9 @@
+/**
+ * sets the button styles and event listeners for the table and return the entire wrapper
+ * @param {Object} product
+ * @returns {Object} buttonWrapper
+ * @author Alessio Englert
+ */
 const getButtonStyles = (product) => {
   const editButton = document.createElement("button");
   const deleteButton = document.createElement("button");
@@ -62,6 +68,13 @@ const getButtonStyles = (product) => {
   return buttonWrapper;
 };
 
+/**
+ * sets the entire table styles and returns all elements
+ * @param {Object} product
+ * @param {Array} categories
+ * @returns {Object}
+ * @author Alessio Englert
+ */
 const getItemTableStyles = (product, categories) => {
   const name = document.createElement("div");
   const sku = document.createElement("div");
@@ -138,6 +151,12 @@ const getItemTableStyles = (product, categories) => {
   };
 };
 
+/**
+ * create the entire product table
+ * @param {Array} allProducts
+ * @param {Array} categories
+ * @author Alessio Englert
+ */
 const createTable = (allProducts, categories) => {
   const dashboardTable = document.getElementById("dashboard-table");
   document.getElementsByClassName("dashboard-table-header")[0].style.display =
@@ -176,6 +195,11 @@ const createTable = (allProducts, categories) => {
   });
 };
 
+/**
+ * sets the styles for the dashboard table
+ * @param {Object} dashboardTable
+ * @author Alessio Englert
+ */
 const setDashboardTableStyles = (dashboardTable) => {
   dashboardTable.style.borderLeft = "solid white 1px";
   dashboardTable.style.borderRight = "solid white 1px";
@@ -186,6 +210,11 @@ const setDashboardTableStyles = (dashboardTable) => {
   dashboardTable.style.marginRight = "0.5em";
 };
 
+/**
+ * sets the styles for each row
+ * @param {Object} row
+ * @author Alessio Englert
+ */
 const setRowTableStyles = (row) => {
   row.style.height = "3em";
   row.style.borderTop = "solid white 1px";
@@ -194,6 +223,11 @@ const setRowTableStyles = (row) => {
   row.style.paddingRight = "0.5em";
 };
 
+/**
+ * resets the table after new values are available
+ * @param {Object} dashboardTable
+ * @author Alessio Englert
+ */
 const resetDashboardTable = (dashboardTable) => {
   let row = dashboardTable.lastChild;
   while (row) {
@@ -202,6 +236,10 @@ const resetDashboardTable = (dashboardTable) => {
   }
 };
 
+/**
+ * closes all popups
+ * @author Alessio Englert
+ */
 const closePopup = () => {
   const popUp = document.getElementById("pop-up");
   popUp.innerHTML = "";

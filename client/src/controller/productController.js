@@ -1,3 +1,10 @@
+/**
+ * received all products from the server
+ * @param {*} response
+ * @param {*} categories
+ * @returns {undefined}
+ * @author Alessio Englert
+ */
 const getProducts = (response, categories) => {
   if (!response.target?.response) {
     return;
@@ -9,10 +16,20 @@ const getProducts = (response, categories) => {
   refCategories.setCategories = categories;
 };
 
+/**
+ * delete a product with the given product sku
+ * @param {String} sku
+ * @author Alessio Englert
+ */
 const deleteProduct = (sku) => {
   useDeleteProduct(sku);
 };
 
+/**
+ * open the editProduct popup
+ * @param {Object} product
+ * @author Alessio Englert
+ */
 const editProduct = (product) => {
   fetch("../view/editProduct.html")
     .then((response) => response.text())
@@ -23,10 +40,20 @@ const editProduct = (product) => {
     });
 };
 
+/**
+ * refetch function to create the table new with updated values
+ * @param {*} response
+ * @author Alessio Englert
+ */
 const refetchProducts = (response) => {
   useGetCategories();
 };
 
+/**
+ * shows all active categories
+ * @param {*} selectCategories
+ * @param {*} product
+ */
 const setCategoryOnCategoryId = (selectCategories, product) => {
   refCategories.getCategories.forEach((category) => {
     if (category.active !== "1") {
@@ -41,6 +68,26 @@ const setCategoryOnCategoryId = (selectCategories, product) => {
   selectCategories.value = +product?.id_category ?? null;
 };
 
+/**
+ * shows all categories
+ * @param {*} selectCategories
+ * @param {*} product
+ */
+const setAllCategoryOnCategoryId = (selectCategories, product) => {
+  refCategories.getCategories.forEach((category) => {
+    const option = document.createElement("option");
+    option.value = +category.category_id;
+    option.innerText = category.name;
+    selectCategories.appendChild(option);
+  });
+  selectCategories.value = +product?.id_category ?? null;
+};
+
+/**
+ * sets the edited product into popup
+ * @param {Object} product
+ * @author Alessio Englert
+ */
 const setAllProductValues = (product) => {
   const inputName = document.getElementById("edit-name");
   const inputSku = document.getElementById("edit-sku");
@@ -59,6 +106,11 @@ const setAllProductValues = (product) => {
   setCategoryOnCategoryId(document.getElementById("edit-categories"), product);
 };
 
+/**
+ * validate the user input and saved the changed properties
+ * @returns {undefined}
+ * @author Alessio Englert
+ */
 const saveEditProductChanges = () => {
   const skuInputElement = document.getElementById("edit-sku");
   const nameInputElement = document.getElementById("edit-name");
@@ -92,10 +144,20 @@ const saveEditProductChanges = () => {
   closePopup();
 };
 
+/**
+ * refetch products
+ * @param {*} response
+ * @author Alessio Englert
+ */
 const getUpdateProductResponse = (response) => {
   refetchProducts();
 };
 
+/**
+ * validate user input and create a new product
+ * @returns {undefined}
+ * @author Alessio Englert
+ */
 const saveAddProduct = () => {
   const skuInputElement = document.getElementById("add-sku");
   const nameInputElement = document.getElementById("add-name");
@@ -129,6 +191,10 @@ const saveAddProduct = () => {
   closePopup();
 };
 
+/**
+ * open add product popup
+ * @author Alessio Englert
+ */
 const openAddProductPopUp = () => {
   fetch("../view/addProduct.html")
     .then((response) => response.text())

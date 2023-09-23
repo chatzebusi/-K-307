@@ -1,5 +1,11 @@
 const request = new XMLHttpRequest();
 
+/**
+ * this send a authentication request to the server to authenticate the user
+ * @param {String} username
+ * @param {String} password
+ * @author Alessio Englert
+ */
 const useAuthenticate = (username, password) => {
   request.onload = getToken;
   request.open(
@@ -16,6 +22,11 @@ const useAuthenticate = (username, password) => {
   );
 };
 
+/**
+ * get all products from the server
+ * @param {Array} categories
+ * @author Alessio Englert
+ */
 const useGetProducts = (categories) => {
   request.onload = (response) => getProducts(response, categories);
   request.open(
@@ -27,6 +38,11 @@ const useGetProducts = (categories) => {
   request.send();
 };
 
+/**
+ * delete the product by product sku
+ * @param {String} sku
+ * @author Alessio Englert
+ */
 const useDeleteProduct = (sku) => {
   request.onload = refetchProducts;
   request.open(
@@ -38,6 +54,10 @@ const useDeleteProduct = (sku) => {
   request.send();
 };
 
+/**
+ * returns all categories who is active
+ * @author Alessio Englert
+ */
 const useGetCategories = () => {
   request.onload = getCategories;
   request.open(
@@ -49,6 +69,11 @@ const useGetCategories = () => {
   request.send();
 };
 
+/**
+ * updates a product by product sku with the given properties
+ * @param {Object} options
+ * @author Alessio Englert
+ */
 const useUpdateProduct = (options) => {
   request.onload = getUpdateProductResponse;
   request.open(
@@ -70,6 +95,11 @@ const useUpdateProduct = (options) => {
   );
 };
 
+/**
+ * creates a new product withe the given properties
+ * @param {Object} options
+ * @author Alessio Englert
+ */
 const useAddProduct = (options) => {
   request.onload = getUpdateProductResponse;
   request.open(
@@ -91,6 +121,11 @@ const useAddProduct = (options) => {
   );
 };
 
+/**
+ * add a new category with the given properties
+ * @param {Object} options
+ * @author Alessio Englert
+ */
 const useAddCategory = (options) => {
   request.onload = getUpdateProductResponse;
   request.open(
@@ -107,6 +142,11 @@ const useAddCategory = (options) => {
   );
 };
 
+/**
+ * updates a category bi category id with the given properties
+ * @param {Object} options
+ * @author Alessio Englert
+ */
 const useUpdateCategory = (options) => {
   request.open(
     "PUT",
@@ -121,6 +161,11 @@ const useUpdateCategory = (options) => {
   );
 };
 
+/**
+ * delete a category bi category id
+ * @param {String} id
+ * @author Alessio Englert
+ */
 const useDeleteSelectedCategory = (id) => {
   request.open(
     "DELETE",

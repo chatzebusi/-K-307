@@ -1,3 +1,7 @@
+/**
+ * adds the navigation buttons to the navigation bar
+ * @author Alessio Englert
+ */
 const addNavigationButtons = () => {
   const showCategories = document.getElementsByClassName("btn-logout")[0];
   showCategories.style.display = "block";
@@ -10,6 +14,13 @@ const addNavigationButtons = () => {
   addNavbarBtnEventListener(showCategories, productGroupBtn, addProductBtn);
 };
 
+/**
+ * adds click eventlistener to each navigation button
+ * @param {*} showCategories
+ * @param {*} productGroupBtn
+ * @param {*} addProductBtn
+ * @author Alessio Englert
+ */
 const addNavbarBtnEventListener = (
   showCategories,
   productGroupBtn,

@@ -1,16 +1,8 @@
-const refCategories = {
-  categories: {},
-
-  set setCategories(value) {
-    this.categories = value;
-  },
-
-  get getCategories() {
-    return this.categories;
-  },
-};
-
 const getProducts = (response, categories) => {
+  if (!response.target?.response) {
+    return;
+  }
+
   const allProducts = JSON.parse(response.target.response);
 
   createTable(allProducts, categories);
@@ -35,8 +27,7 @@ const refetchProducts = (response) => {
   useGetCategories();
 };
 
-const setCategoryOnCategoryId = (product) => {
-  const selectCategories = document.getElementById("edit-categories");
+const setCategoryOnCategoryId = (selectCategories, product) => {
   refCategories.getCategories.forEach((category) => {
     if (category.active !== "1") {
       return;
@@ -47,7 +38,7 @@ const setCategoryOnCategoryId = (product) => {
     option.innerText = category.name;
     selectCategories.appendChild(option);
   });
-  selectCategories.value = +product.id_category;
+  selectCategories.value = +product?.id_category ?? null;
 };
 
 const setAllProductValues = (product) => {
@@ -65,17 +56,10 @@ const setAllProductValues = (product) => {
   inputStock.value = product.stock;
   switchActive.checked = +product.active;
 
-  setCategoryOnCategoryId(product);
-};
-
-const closeEditProductPopup = () => {
-  const editProductPopup = document.getElementById("edit-product");
-  editProductPopup.style.display = "none";
+  setCategoryOnCategoryId(document.getElementById("edit-categories"), product);
 };
 
 const saveEditProductChanges = () => {
-  // TODO show loading some way
-  // TODO active is not work on updated
   const skuInputElement = document.getElementById("edit-sku");
   const nameInputElement = document.getElementById("edit-name");
   const descriptionInputElement = document.getElementById("edit-description");
@@ -102,8 +86,10 @@ const saveEditProductChanges = () => {
     price: priceInputElement.value,
     category: categoriesSelectElement.value,
     stock: stockInputElement.value,
-    active: activeInputElement.value,
+    active: activeInputElement.checked === true ? 1 : 0,
   });
+
+  closePopup();
 };
 
 const getUpdateProductResponse = (response) => {
@@ -111,8 +97,6 @@ const getUpdateProductResponse = (response) => {
 };
 
 const saveAddProduct = () => {
-  // TODO show loading some way
-  // TODO description loading don't work
   const skuInputElement = document.getElementById("add-sku");
   const nameInputElement = document.getElementById("add-name");
   const descriptionInputElement = document.getElementById("add-description");
@@ -139,11 +123,18 @@ const saveAddProduct = () => {
     price: priceInputElement.value,
     category: categoriesSelectElement.value,
     stock: stockInputElement.value,
-    active: activeInputElement.value,
+    active: activeInputElement.checked === true ? 1 : 0,
   });
+
+  closePopup();
 };
 
-const closeAddProductPopup = () => {
-  const addProductPopup = document.getElementById("add-product");
-  addProductPopup.style.display = "none";
+const openAddProductPopUp = () => {
+  fetch("../view/addProduct.html")
+    .then((response) => response.text())
+    .then((data) => {
+      const popUp = document.getElementById("pop-up");
+      popUp.innerHTML = data;
+      setCategoryOnCategoryId(document.getElementById("add-categories"));
+    });
 };

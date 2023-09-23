@@ -19,7 +19,7 @@
   padding: 3em;
 }
 
-.add-container {
+.all-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -70,7 +70,7 @@
   margin-top: 0.2em;
 }
 
-.add-product-item-wrapper {
+.all-category-item-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -85,7 +85,8 @@
   margin-top: 1em;
 }
 
-.active-wrapper {
+.active-category-wrapper {
+  width: 60%;
   margin-top: 1em;
 }
 
@@ -97,7 +98,7 @@
   margin-top: 1em;
 }
 
-.add-product-btn-wrapper {
+.all-category-btn-wrapper {
   width: 60%;
   display: flex;
   justify-content: space-between;

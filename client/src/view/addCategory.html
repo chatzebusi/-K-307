@@ -1,0 +1,22 @@
+<div id="add-category" class="add-container">
+  <div class="card">
+    <div class="card-header">Add Category</div>
+    <div class="card-body">
+      <div class="add-category-item-wrapper">
+        <div>
+          <label class="name-label" for="name">Name</label><br />
+          <input class="input-name" id="add-name" type="text" />
+          <p class="error-message error-name">Please enter a category name</p>
+        </div>
+        <div class="active-category-wrapper">
+          <label class="active-label" for="active">Active</label><br />
+          <input class="input-active" id="add-active" type="checkbox" />
+        </div>
+        <div class="add-category-btn-wrapper">
+          <button type="button" onclick="saveAddCategory()">ok</button>
+          <button type="button" onclick="closePopup()">back</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

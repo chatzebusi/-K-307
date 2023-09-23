@@ -90,3 +90,43 @@ const useAddProduct = (options) => {
     })
   );
 };
+
+const useAddCategory = (options) => {
+  request.onload = getUpdateProductResponse;
+  request.open(
+    "POST",
+    `https://campus.csbe.ch/sollberger-manuel/uek307/Category`,
+    true
+  );
+
+  request.send(
+    JSON.stringify({
+      active: options.active,
+      name: options.name,
+    })
+  );
+};
+
+const useUpdateCategory = (options) => {
+  request.open(
+    "PUT",
+    `https://campus.csbe.ch/sollberger-manuel/uek307/Category/${options.categoryId}`,
+    true
+  );
+
+  request.send(
+    JSON.stringify({
+      active: options.active,
+    })
+  );
+};
+
+const useDeleteSelectedCategory = (id) => {
+  request.open(
+    "DELETE",
+    `https://campus.csbe.ch/sollberger-manuel/uek307/Category/${id}`,
+    true
+  );
+
+  request.send();
+};

@@ -49,3 +49,13 @@ const validateProductInput = (sku, name, price, stock) => {
 
   return isError;
 };
+
+const validateNewCategoryInput = (name) => {
+  let isError = false;
+  if (name === "") {
+    const errorMessage = document.getElementsByClassName("error-name")[0];
+    errorMessage.style.display = "block";
+    isError = true;
+  }
+  return isError;
+};

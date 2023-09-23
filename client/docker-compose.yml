@@ -1,9 +1,0 @@
-services:
-  web:
-    image: nginx
-    container_name: uek_307
-    restart: unless-stopped
-    ports:
-      - "8080:80"
-    volumes:
-      - /home/lesu/Desktop/htdocs_projecte/uek_307/UEK-307.git/client/src:/usr/share/nginx/html:ro

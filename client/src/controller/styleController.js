@@ -201,3 +201,8 @@ const resetDashboardTable = (dashboardTable) => {
     row = dashboardTable.lastChild;
   }
 };
+
+const closePopup = () => {
+  const popUp = document.getElementById("pop-up");
+  popUp.innerHTML = "";
+};
